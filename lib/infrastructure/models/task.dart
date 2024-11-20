@@ -1,3 +1,6 @@
+// To parse this JSON data, do
+//
+//     final taskModel = taskModelFromJson(jsonString);
 
 import 'dart:convert';
 
@@ -6,29 +9,41 @@ TaskModel taskModelFromJson(String str) => TaskModel.fromJson(json.decode(str));
 String taskModelToJson(TaskModel data) => json.encode(data.toJson());
 
 class TaskModel {
-  List<Task>? tasks;
+  final List<Task>? tasks;
+  final int? totalPages;
+  final int? currentPage;
+  final int? count;
 
   TaskModel({
     this.tasks,
+    this.totalPages,
+    this.currentPage,
+    this.count,
   });
 
   factory TaskModel.fromJson(Map<String, dynamic> json) => TaskModel(
     tasks: json["tasks"] == null ? [] : List<Task>.from(json["tasks"]!.map((x) => Task.fromJson(x))),
+    totalPages: json["totalPages"],
+    currentPage: json["currentPage"],
+    count: json["count"],
   );
 
   Map<String, dynamic> toJson() => {
     "tasks": tasks == null ? [] : List<dynamic>.from(tasks!.map((x) => x.toJson())),
+    "totalPages": totalPages,
+    "currentPage": currentPage,
+    "count": count,
   };
 }
 
 class Task {
-  String? id;
-  String? description;
-  bool? complete;
-  String? owner;
-  DateTime? createdAt;
-  DateTime? updatedAt;
-  int? v;
+  final String? id;
+  final String? description;
+  final bool? complete;
+  final String? owner;
+  final DateTime? createdAt;
+  final DateTime? updatedAt;
+  final int? v;
 
   Task({
     this.id,

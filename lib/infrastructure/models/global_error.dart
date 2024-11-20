@@ -1,6 +1,9 @@
 
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
+import 'package:provider/provider.dart';
+
 GlobalErrorModel globalErrorModelFromJson(String str) =>
     GlobalErrorModel.fromJson(json.decode(str));
 
@@ -23,3 +26,4 @@ class GlobalErrorModel {
     "error": error,
   };
 }
+
