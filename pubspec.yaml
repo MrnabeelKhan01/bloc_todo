@@ -18,6 +18,9 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_bloc:
   http:
+  loading_overlay:
+  flutter_easyloading: ^3.0.5
+  shared_preferences: ^2.1.1
   equatable:
 
 dev_dependencies:
