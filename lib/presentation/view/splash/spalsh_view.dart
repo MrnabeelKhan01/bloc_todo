@@ -17,16 +17,13 @@ class _SplashScreenState extends State<SplashScreen> {
   Future<void> checkToken() async {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('authToken');
-
     if (token != null && token.isNotEmpty) {
-      BackendConfigs.kUserToken = token; 
-      // ignore: use_build_context_synchronously
+      BackendConfigs.kUserToken = token;
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const BottomNavBarView()),
       );
     } else {
-      // ignore: use_build_context_synchronously
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => LogInView()),
